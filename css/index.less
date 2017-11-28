@@ -1,0 +1,125 @@
+@charset 'utf-8';
+@main-color:#FF841D;
+// 导航图标开始
+nav{
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 0.25rem;
+  ul{
+    width: 100%;
+    li{
+      width: 25%;
+      float: left;
+      margin-top: 1rem;
+      a{
+        text-align: center;display:block;
+        img{
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+        p{
+          font-size: 0.7rem;
+          color:#333;
+          height:1.2rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.discount,.rank{
+  height:1.75rem;
+  width:100%;
+  background-color: #FFA22A;
+  margin-top: 0.5rem;
+  p{
+    font-size: 0.9rem;
+    line-height: 1.75rem;
+    height: 1.75rem;
+    padding-left: 0.5rem;
+    color: #fff;
+    a{
+      height: 1.75rem;
+      width: 1.75rem;
+      padding-top:0.375rem;      
+      display: block;
+      float: right;
+      padding-left: 0.5rem;
+      img{
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+.rank{
+  margin-bottom: 1.25rem;
+}
+
+// 商品区域开始
+.product{
+  ul{
+    background-color: #fff;
+    li{
+      height: 6.4rem;
+      border-bottom: 0.025rem solid #ccc;
+      padding: 0.75rem;
+      overflow: hidden;
+      .product_l{
+        width: 5.85rem;
+        height: 6.4rem;
+        float: left;
+        img{
+          display: block;
+          width: 4rem;
+          height: 4rem;;
+        }
+      }
+      .product_r{
+        overflow: hidden;
+        .desc{
+          color: #333;
+          font-size: 0.85rem;
+          strong{
+            color: @main-color;
+          }
+        }
+        .tianmao{
+          height: 2rem;
+          line-height: 2rem;
+          font-size: 0.7rem;
+          color: #ccc;
+          span{
+
+          }
+        }
+      }
+    }
+
+  }
+  
+}
+
+// 更多优惠
+.index_morediscount{
+  background-color: #fff;
+  height: 2.2rem;
+  font-size: 0.65rem;
+  position: relative;
+  .morediscount{
+    height: 1.65rem;
+    width:90%;
+    line-height: 1.65rem;
+    position: absolute;
+    text-align: center;
+    left: 5%;
+    bottom: 0px;
+    border: 0.025rem solid #ccc;
+    border-radius: 0.25rem;
+  }
+
+}
+

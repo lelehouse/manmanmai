@@ -1,0 +1,149 @@
+@charset 'utf-8';
+html,
+body {
+  background-color: #eee;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  /* 设置盒模型不会被padding border撑大 不会出横向滚动条 */
+  box-sizing: border-box;
+  /* 清除移动端点击高亮背景色 */
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  text-decoration: none;
+  color: #666;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  /* 解决图片3px的问题 */
+  vertical-align: bottom;
+}
+input {
+  border: 0;
+  /* 清除移动端输入框内边框 */
+  outline: 0;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+header {
+  margin-bottom: 0.5rem;
+}
+header .topbar {
+  width: 100%;
+  height: 2.5rem;
+  background: url("../images/header_logo.png") #FF841D no-repeat 0.5rem center;
+  background-size: 9.775rem 1.25rem;
+}
+header .topbar img {
+  width: 1.7rem;
+  height: 1.7rem;
+  float: right;
+  margin-right: 0.5rem;
+  margin-top: 0.4rem;
+}
+header .search_input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  background-color: #fff;
+}
+header .search_input input {
+  height: 1.4rem;
+  width: 82%;
+  border-radius: 0.7rem;
+  float: left;
+  padding-left: 1rem;
+  background-color: #F1F1F1;
+}
+header .search_input a {
+  height: 1.4rem;
+  width: 15%;
+  border-radius: 0.7rem;
+  float: right;
+  color: #fff;
+  background-color: #FF841D;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1.4rem;
+}
+.footer {
+  border-top: 0.025rem solid #ccc;
+  border-bottom: 0.025rem solid #ccc;
+  height: 1.65rem;
+  width: 100%;
+  margin: 0 0 0.5rem 0;
+}
+.footer a {
+  display: block;
+  height: 1.65rem;
+  line-height: 1.65rem;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  font-size: 0.55rem;
+  color: #000;
+}
+.footer a:first-child {
+  width: 30%;
+}
+.footer a:nth-child(2) {
+  width: 30%;
+}
+.footer a:last-child {
+  width: 40%;
+  position: relative;
+}
+.footer a:last-child:before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  left: 1.75rem;
+  background: url(../images/top.jpg) 0 0 no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+.footer a.footer-border {
+  border-right: 0.025rem solid #ccc;
+}
+.copy {
+  width: 11.55rem;
+  height: 1.8rem;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.45rem;
+}
+.copy p {
+  color: #000;
+}
+.copy p .download {
+  color: red;
+}
+.copy p span {
+  color: #737065;
+}
+.copy p:last-child {
+  font-size: 0.4rem;
+}

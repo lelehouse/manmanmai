@@ -1,0 +1,39 @@
+@charset 'utf-8';
+* {
+  margin: 0px;
+  padding: 0px;
+  /* 设置盒模型不会被padding border撑大 不会出横向滚动条 */
+  box-sizing: border-box;
+  /* 清除移动端点击高亮背景色 */
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  text-decoration: none;
+  color: #666;
+}
+a:link,a:visited,a:hover,a:active{
+  color: black;
+}
+ul,ol,li {
+  list-style: none;
+}
+img {
+  /* 解决图片3px的问题 */
+  vertical-align: bottom;
+}
+input {
+  border: 0;
+  /* 清除移动端输入框内边框 */
+  outline: 0;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
