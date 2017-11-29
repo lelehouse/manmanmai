@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/category.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            <img src="./images/header_app.png" alt="">
+        </div>
+        <div class="search_input clearfix">
+            <input type="search" name="" placeholder="请输入你想比价的商品"/>
+            <a href="#">搜索</a>
+        </div>
+    </header>
+    
+    <div class="category">
+        <ul class="cate-box">
+        
+        </ul>
+    </div>
+      
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+      <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+      </div>
+      
+
+      <script type="text/template" id="cateTpl">
+        {{each result v i}}
+           <li class="cate-title">
+            <p data-titleid = {{v.titleId}}>   
+                {{v.title}}
+            </p>
+           </li>
+        {{/each}}
+      </script>
+      
+      <script type="text/template" id="itemTpl">
+       <ul class="cate-con clearfix">
+      {{each result  v i}}
+            <li><a href="productlist.html?categoryid={{v.categoryId}}&category={{v.category}}&pageid=1" data-category-id={{v.categoryId}}>{{v.category}}</a></li>
+      {{/each}}
+       </ul>
+      </script>
+      
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+    route.getcategorytitle(function(info){
+        // console.log(info);
+        $('.cate-box').html(template('cateTpl',info));
+      
+    //     //将一级分类标题名存起来，在productlist渲染出来
+    //     var objtitle = {};
+    //   $('.cate-title').find('p').each(function(e){
+    //       objtitle[$(this).data('titleid')] = $(this).text().trim();
+    //   });
+      
+
+    },function(){
+            //发送ajax请求渲染二级菜单
+            var p = $(".cate-title p");
+            for(var i=0;i<p.length;i++){
+                p.eq(i).on('click',function(){
+                var $this = $(this);
+                var li = $this.parent();
+                var titleId= $this.data("titleid");
+                route.getcategory(titleId,function(data){
+                    li.append(template("itemTpl",data));
+                    var ul = $this.next();
+                    ul.toggleClass("show");
+                });
+                });
+           }
+          
+    });
+          
+   
+        
+</script>
+</body>
+</html>

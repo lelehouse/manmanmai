@@ -147,3 +147,38 @@ header .search_input a {
 .copy p:last-child {
   font-size: 0.4rem;
 }
+.product ul {
+  background-color: #fff;
+}
+.product ul li {
+  height: 6.4rem;
+  border-bottom: 0.025rem solid #ccc;
+  padding: 0.75rem;
+  overflow: hidden;
+}
+.product ul li .product_l {
+  width: 5.85rem;
+  height: 6.4rem;
+  float: left;
+}
+.product ul li .product_l img {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+.product ul li .product_r {
+  overflow: hidden;
+}
+.product ul li .product_r .desc {
+  color: #333;
+  font-size: 0.85rem;
+}
+.product ul li .product_r .desc strong {
+  color: #FF841D;
+}
+.product ul li .product_r .tianmao {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.7rem;
+  color: #ccc;
+}

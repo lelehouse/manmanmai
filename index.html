@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            <img src="./images/header_app.png" alt="">
+        </div>
+        <div class="search_input clearfix">
+                <input type="search" name="" placeholder="请输入你想比价的商品"/>
+                <a href="#">搜索</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="clearfix getindexmenu">
+            <!-- 挖了一个坑 -->
+        </ul>
+    </nav>
+
+    <div class="discount">
+        <p class="clearfix">超值折扣推荐 <a href="#"><img src="./images/more.png" alt=""></a></p>
+    </div>
+
+    <!-- 商品区域 -->
+    <div class="product">
+        <ul class="getmoneyctrl">
+            <!-- 挖一个坑 -->
+            
+        </ul>
+    </div>
+    <div class="index_morediscount">
+         <a href="getmoneyctrl.html" class="morediscount">更多优惠信息>></a>
+    </div>
+    <div class="rank">
+            <p class="clearfix">超值折扣推荐 <a href="#"><img src="./images/more.png" alt=""></a></p>
+    </div>
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+      <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+      </div>
+      
+<script type="text/html" id="tpl_1">
+    {{each result v i}}
+      <li>
+       <a href="{{v.titlehref}}" data-id="{{indexmenuId}}" class="menu">
+           {{@v.img}}
+           <p>{{v.name}}</p>
+        </a>
+      </li>
+     {{/each}}
+</script>
+<script type="text/html" id="tpl_2">
+    {{each result v i}}
+    <li data-productId="{{v.productId}}">
+        <a href="#" class="product_l">                  
+              {{#v.productImgSm}}
+        </a>
+        <a href="#" class="product_r">
+            <p class="desc">
+                {{v.productName}}
+                <strong>{{v.productPinkage}}</strong>
+            </p>
+            <p class="tianmao">{{v.productFrom}}|<i>{{v.productTime}}</i> <span class="pull-right">{{v.productComCount}}</span> </p>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+    route.getindexmenu(function(info){
+        $('.getindexmenu').html(template('tpl_1',info)) 
+        $('.getindexmenu li').eq(7).on('click',function(){
+            $('.getindexmenu li').each(function(i,e){
+                if(i>7){
+                    $(this).slideToggle();
+                }
+            })
+             
+        });
+    });
+    route.getmoneyctrl(function(info){
+        console.log(info);
+        $('.getmoneyctrl').html(template('tpl_2',info));
+        
+    });
+
+
+
+</script>
+</body>
+</html>

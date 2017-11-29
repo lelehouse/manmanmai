@@ -1,0 +1,87 @@
+@charset "utf-8";
+header {
+  margin-bottom: 0;
+}
+.nav {
+  border: 0.025rem solid #ccc;
+}
+.nav ul {
+  width: 100%;
+  position: relative;
+}
+.nav ul li {
+  float: left;
+  font-size: 0.75rem;
+  height: 1.875rem;
+  line-height: 1.875rem;
+}
+.nav ul li a {
+  display: block;
+  text-align: center;
+}
+.nav ul li:last-of-type {
+  position: absolute;
+  right: 3.375rem;
+}
+.nav ul li:last-of-type a {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1.4rem;
+  line-height: 1.4rem;
+  width: 3.125rem;
+  border-radius: 0.3rem;
+  background-color: #E0E0E0;
+}
+.product ul li {
+  border-bottom: 0.025rem solid #999;
+}
+.product ul li .product_r .price {
+  color: red;
+  font-size: 0.75rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+}
+.product ul li .product_r .baojia {
+  color: #ccc;
+  font-size: 0.65rem;
+}
+.product ul li .product_r .baojia .feedback {
+  padding-left: 0.5rem;
+}
+.paginator {
+  padding-top: 0.55rem;
+  height: 2.25rem;
+  background-color: #fff;
+  position: relative;
+}
+.paginator .btn {
+  display: block;
+  text-align: center;
+  line-height: 1.7rem;
+  width: 4.15rem;
+  height: 1.7rem;
+  background-color: #DBDBDB;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+}
+.paginator .btn.btn-prepage {
+  float: left;
+  margin-left: 0.5rem;
+}
+.paginator .btn.btn-nextpage {
+  float: right;
+  margin-right: 0.5rem;
+}
+.paginator select {
+  height: 1.7rem;
+  padding: 0 0.875rem;
+  font-size: 0.6rem;
+  border: 0.05rem solid #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.footer {
+  margin-top: 1.25rem;
+}

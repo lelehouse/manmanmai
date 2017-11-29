@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/productlist.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            <img src="./images/header_app.png" alt="">
+        </div>
+        <div class="search_input clearfix">
+                <input type="search" name="" placeholder="请输入你想比价的商品"/>
+                <a href="#">搜索</a>
+        </div>
+    </header>
+     
+    <!-- 面包屑导航 -->
+     <div class="nav">
+         <ul class="clearfix">
+             <li><a href="index.html">首页>></a></li>
+             <li><a href="category.html" class="titlecate">全部分类>></a></li>
+             <li><a href="" class="category"> >></a></li>
+             <li><a href="">筛选</a></li>
+         </ul>
+     </div>
+      <!-- 商品区域 -->
+    <div class="product">
+            <ul class="getmoneyctrl">
+                <!-- 挖一个坑 -->
+            </ul>
+    </div>
+
+    <!-- 分页 -->
+    <div class="paginator">
+       <!-- 挖一个坑 -->
+    </div>
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+      <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+      </div>
+      
+<script type="text/html" id="tpl_1">
+    {{each result v i}}
+    <li>
+            <a href="bijia.html?productId={{v.productId}}" class="product_l">                  
+                  {{@v.productImg}}
+            </a>
+            <a href="bijia.html?productId={{v.productId}}" class="product_r">
+                <p class="desc">
+                    {{v.productName}} 
+                </p>
+                <p class="price">{{v.productPrice}}</p>
+                <p class="baojia">{{v.productQuote}}<span class="feedback">{{v.productCom}}</span> </p>
+            </a>
+    </li>
+    {{/each}}
+</script>
+<script type="text/html" id="tpl_2">
+
+    <a href="javascript:;" class="btn btn-prepage">上一页</a>
+    <select>
+        <% for(var i=1;i<=totalsize;i++){%>
+        <option value="{{pageid}}"> {{pageid}} /{{totalsize}}</option>
+        <%}%>
+    </select>
+    <a href="javascript:;" class="btn btn-nextpage">下一页</a>
+
+</script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+   var category = route.getvalue('category');
+   var categoryid =route.getvalue('categoryid');
+   var pageid = route.getvalue('pageid');
+  
+   // 设置面包屑导航
+    $(".category").text( category );
+    
+   //渲染对应的商品
+   var data={
+    categoryid:categoryid,
+    pageid:pageid
+   }
+   route.getproductlist(data,function(result){
+    console.log(result);
+    $(".getmoneyctrl").html( template('tpl_1',result) );
+   
+    $('.getmoneyctrl a').each(function(){
+        var href = $(this).attr('href');
+        $(this).attr('href',href+'&category='+category);
+    })
+       
+     var totalsize  = Math.ceil(result.totalCount/result.pagesize); 
+     var pagesize = {totalsize:totalsize,
+                      pageid : pageid};
+  
+     $('.paginator').html(template('tpl_2',pagesize));
+ 
+     
+
+     $('.paginator .btn-prepage').on('click',function(){
+         
+        $('.paginator .btn-nextpage').css('background','#eee');
+        pageid>1?pageid--:'';
+        if(pageid<1){
+            $('.paginator .btn-prepage').css('background','red');
+            return false;
+        }
+        // console.log(pageid);
+        window.location.href ="productlist.html?categoryid="+categoryid+"&category="+category+"&pageid="+pageid;
+        $('select option').eq(pageid).prop('selected',true);
+     })
+     $('.paginator .btn-nextpage').on('click',function(){
+        $('.paginator .btn-prepage').css('background','#eee');
+        pageid<totalsize?pageid++:''; 
+        if(pageid>totalsize){
+            $('.paginator .btn-nextpage').css('background','red');
+            return false;
+        }
+        // console.log(pageid);
+       
+        window.location.href ="productlist.html?categoryid="+categoryid+"&category="+category+"&pageid="+pageid;
+        
+     })
+     
+       
+    $('select').on('change',function(){
+        var length = $('select').find('option').length;
+        $('select').find('option').each(function(i,e){
+            $(this).text(i+1+"/"+length);
+        });
+        pageid=$('select option').prop('selected',true).val();
+        window.location.href ="productlist.html?categoryid="+categoryid+"&category="+category+"&pageid="+pageid;
+    })
+   
+  
+   
+    
+
+
+   });
+</script>
+</body>
+</html>
