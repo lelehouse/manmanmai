@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/moneyctrl.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            省钱控-最新优惠
+            <img src="./images/header_app.png" alt="">
+        </div>
+    </header>
+ 
+
+      <!-- 商品区域 -->
+     <div class="product">
+        <ul class="getmoneyctrl">
+            <!-- 挖一个坑 -->
+            
+        </ul>
+    </div>
+
+     <!-- 分页 -->
+     <div class="paginator">
+        <!-- 挖一个坑 -->
+     </div>
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+      <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+      </div>
+
+<script type="text/html" id="tpl_1">
+    {{each result v i}}
+    <li data-productId="{{v.productId}}">
+        <a href="moneyproduct.html?productid={{v.productId}}" class="product_l">                  
+              {{#v.productImgSm}}
+        </a>
+        <a href="moneyproduct.html?productid={{v.productId}}" class="product_r">
+            <p class="desc">
+                {{v.productName}}
+                <strong>{{v.productPinkage}}</strong>
+            </p>
+            <p class="tianmao">{{v.productFrom}}|<i>{{v.productTime}}</i> <span class="pull-right">{{v.productComCount}}</span> </p>
+        </a>
+    </li>
+    {{/each}}
+</script>
+ 
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+   route.getmoneyctrl(function(result){
+    console.log(result);
+    $('.getmoneyctrl').html(template('tpl_1',result));
+
+     
+   });
+ 
+</script>
+</body>
+</html>

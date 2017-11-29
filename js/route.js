@@ -14,7 +14,8 @@
        getcategorybyid:getcategorybyid,
        getproductlist:getproductlist,
        getproduct:getproduct,
-       getproductcom:getproductcom
+       getproductcom:getproductcom,
+       getmoneyctrlproduct:getmoneyctrlproduct
     };
 
         // 获取地址栏值
@@ -116,7 +117,12 @@
             callback&&callback(info);
         },'json');
     }
-   
+    function getmoneyctrlproduct(data,callback){
+        url = route.baseurl +"getmoneyctrlproduct";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
 
    window.route = route;
 

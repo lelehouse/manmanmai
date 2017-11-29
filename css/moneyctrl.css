@@ -1,0 +1,26 @@
+header .topbar {
+  background: #FF841D;
+  text-align: center;
+  padding-left: 1.7rem;
+  line-height: 2.5rem;
+  color: #fff;
+}
+.product ul li {
+  border-bottom: 0.025rem solid #999;
+}
+.product ul li .product_r .price {
+  color: red;
+  font-size: 0.75rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+}
+.product ul li .product_r .baojia {
+  color: #ccc;
+  font-size: 0.65rem;
+}
+.product ul li .product_r .baojia .feedback {
+  padding-left: 0.5rem;
+}
+.footer {
+  margin-top: 1.25rem;
+}

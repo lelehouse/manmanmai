@@ -1,0 +1,171 @@
+@charset "utf-8";
+header .topbar {
+  background: #FF841D;
+  text-align: center;
+  padding-left: 1.7rem;
+  line-height: 2.5rem;
+  color: #fff;
+}
+.bar {
+  background-color: #fff;
+  padding: 0.5rem 0.5rem 1.1rem 0.5rem;
+}
+.bar .bar-title h3 {
+  font-size: 0.65rem;
+}
+.bar .bar-title p {
+  margin-top: 0.35rem;
+  font-size: 0.4rem !important;
+}
+.bar .bar-detail {
+  margin-top: 0.5rem;
+}
+.bar .bar-detail .right {
+  float: right;
+  width: 6rem;
+}
+.bar .bar-detail .right img {
+  height: 6rem;
+}
+.bar .bar-detail .left {
+  height: 100%;
+  margin-right: 6.5rem;
+  font-size: 0.6rem;
+  line-height: 1.7;
+}
+.bar .bar-more p {
+  font-size: 0.6rem;
+}
+.bar .bar-more img {
+  height: 15.25rem;
+}
+.bar .info-list {
+  margin-top: 1.5rem;
+}
+.bar .info-list ul {
+  width: 5.75rem;
+  padding: 0.4rem  0.5rem;
+  box-shadow: 0.025rem 0.025rem 0.05rem 0.05rem #ccc;
+  margin: 0 auto;
+}
+.bar .info-list ul li {
+  padding: 0 0.25rem;
+  height: 1.05rem;
+  line-height: 1.05rem;
+  border-bottom: 1px dashed #ccc;
+}
+.bar .info-list ul li span {
+  font-size: 0.4rem;
+  color: #000;
+}
+.bar .info-list ul li span strong {
+  float: right;
+  color: #FF841D;
+}
+.bar .go-buy {
+  width: 100%;
+  height: 2rem;
+  position: relative;
+  margin-top: 1.0rem;
+  margin-bottom: 1.5rem;
+}
+.bar .go-buy input {
+  width: 16.85rem;
+  height: 1.5rem;
+  background-color: #FF841D;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5rem;
+  border-radius: 0.25rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5rem;
+}
+.bar .comment .ui-border-t {
+  margin: 1.0rem 0;
+}
+.bar .comment .ui-border-t .tit {
+  font-size: 0.75rem;
+  color: #000;
+}
+.bar .comment .ui-border-t .reply {
+  width: 17.5rem;
+  height: 5.5rem;
+  border: 0.025rem solid #ccc;
+  background-color: #f1f1f1;
+  border-radius: 0.1rem;
+  position: relative;
+}
+.bar .comment .ui-border-t .reply textarea {
+  width: 100%;
+  border-style: none;
+  height: 3.575rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  resize: none;
+}
+.bar .comment .ui-border-t .reply input {
+  width: 5.0rem;
+  height: 1.9rem;
+  background-color: #FF841D;
+  color: #fff;
+  line-height: 1.9rem;
+  text-align: center;
+  position: absolute;
+  font-size: 0.5rem;
+  right: 0;
+  bottom: 0;
+}
+.bar .comment .ui-border-t #newcomment {
+  font-size: 0.75rem;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+.bar .comment .ui-border-t .list li {
+  zoom: 1;
+  margin-bottom: 0.8rem;
+}
+.bar .comment .ui-border-t .list li:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.bar .comment .ui-border-t .list li .con {
+  margin-left: 2.75rem;
+  margin-right: 0.5rem;
+  width: 100%;
+  font-size: 0.5rem;
+  position: relative;
+}
+.bar .comment .ui-border-t .list li .con .username {
+  font-size: 0.4rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.35rem;
+  color: #5997C0;
+}
+.bar .comment .ui-border-t .list li .con .time {
+  position: absolute;
+  top: 0;
+  right: 4rem;
+  font-size: 0.4rem;
+}
+.bar .comment .ui-border-t .list li .con .content {
+  padding: 0 3rem 0 0;
+}
+.bar .comment .ui-border-t .list li .con .content img {
+  width: 0.5rem;
+  height: 0.5rem;
+  display: inline-block;
+}
+.bar .comment .ui-border-t .list li .userimg {
+  margin-right: 6.25rem;
+}
+.bar .comment .ui-border-t .list li .userimg img {
+  float: left;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+}
