@@ -48,6 +48,9 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.canshu {
+  margin: 0;
+}
 .canshu a {
   background-color: #FFC833;
   border-top: 0.025rem solid red;
@@ -61,4 +64,84 @@
 }
 .canshu a:last-of-type {
   border-right: none;
+}
+.table {
+  text-align: right;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  background-color: #fff;
+}
+.table table td {
+  font-size: 0.8rem;
+}
+.table table td.p_pic {
+  width: 1.5rem;
+  position: relative;
+}
+.table table td.p_pic img {
+  width: 0.8rem;
+  height: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+}
+.table table td.red {
+  color: red;
+  font-size: 0.8rem;
+}
+.table table td span {
+  width: 2.875rem !important;
+  height: 0.925rem !important;
+  background-color: #FF5600;
+  color: white;
+  display: block  !important;
+  line-height: 0.925rem !important;
+  font-size: 0.8rem;
+}
+.tips {
+  height: 3rem;
+  padding: 0.375rem;
+  line-height: 1.125rem;
+  background-color: #fff;
+  border-top: 0.05rem solid #ccc;
+  border-bottom: 0.075rem solid #999;
+  color: #999;
+  font-size: 0.6rem;
+}
+.feedbacks h4 {
+  height: 1.75rem;
+  background-color: #DBDBDB;
+  font-size: 0.6rem;
+  line-height: 1.75rem;
+  text-align: center;
+}
+.feedbacks .item {
+  padding: 0.5rem;
+  font-size: 0.6rem;
+  color: #999;
+  background-color: #fff;
+  border-bottom: 0.025rem solid #ccc;
+}
+.feedbacks .item .detail_info {
+  color: #333;
+}
+.index_morediscount {
+  background-color: #fff;
+  height: 3.65rem;
+  font-size: 0.65rem;
+  position: relative;
+}
+.index_morediscount .morediscount {
+  height: 1.65rem;
+  width: 90%;
+  line-height: 1.65rem;
+  position: absolute;
+  text-align: center;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0.025rem solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #eee;
 }

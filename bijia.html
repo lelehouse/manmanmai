@@ -39,6 +39,26 @@
             <a href="javascript:;" >产品参数</a>
             <a href="#">评价(111)</a>
     </div>
+
+    <div class="table">
+
+    </div>
+    
+    <!-- tip -->
+    <p class="tips">
+        *实际价格以为准实际价格以为准实际价格以实际价格以为准实际价格以为准
+    </p>
+
+    <!-- feedbacks -->
+    <section class="feedbacks">
+        
+        <!-- 挖一个坑 -->
+    </section>
+
+    <div class="index_morediscount">
+            <a href="javascript:;" class="morediscount">更多评价>></a>
+    </div>
+
     <!-- 底部开始 -->
      <div class="footer">
         <a href="javascript:;" class="footer-border now">登录</a>
@@ -51,7 +71,22 @@
       </div>
       
 <script type="text/html" id="tpl_1">
-     
+    <h4>网友评价</h4>
+     {{each result v i }}
+        <div class="item">
+            <p class="userinfo clearfix"> 
+                <span class="username pull-left">{{v.comName}}</span>
+                <span class="usertime pull-right">{{v.comTime}}</span>
+            </p>
+            <div class="info_from clearfix">
+                <p class=" pull-right"> {{v.comFrom}}</p>
+            </div>
+            <p class="detail_info">
+              {{v.comContent}}
+            </p>
+        </div>
+
+     {{/each}}
 </script>
 <script type="text/html" id="tpl_2">
    
@@ -71,12 +106,12 @@
         console.log(info);
         var productName = info.result[0].productName.split(" ")[0]+info.result[0].productName.split(" ")[1];
         $('.productName').text(productName+">>");
-
         $('.detail').append(info.result[0].productName+info.result[0].productImg);
-         
-
-
-        
+        $('.table').append(info.result[0].bjShop);
+    });
+    route.getproductcom(data,function(info){
+        console.log(info);
+        $(".feedbacks").html(template('tpl_1',info));
     });
 </script>
 </body>

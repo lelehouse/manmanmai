@@ -13,7 +13,8 @@
        getcategory:getcategory,
        getcategorybyid:getcategorybyid,
        getproductlist:getproductlist,
-       getproduct:getproduct
+       getproduct:getproduct,
+       getproductcom:getproductcom
     };
 
         // 获取地址栏值
@@ -109,7 +110,13 @@
             callback&&callback(info);
         },'json');
     }
-
+    function getproductcom(data,callback){
+        url = route.baseurl +"getproductcom";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+   
 
    window.route = route;
 
