@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/discount.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            国内折扣
+            <img src="./images/header_app.png" alt="">
+        </div>
+    </header>
+ <!-- header -->
+<!-- header -->
+<div class="bar">
+    <div class="bar-title">
+    </div>
+  
+    <div class="bar-detail">
+    </div>
+  
+    <div class="bar-more"> 
+    </div>
+  
+    <div class="info-list">
+    </div>
+    <div class="go-buy">
+      <input type="button" value="前往购买">
+    </div>
+    <div class="QR-img">
+      <img src="images/mmbweixin2.png" alt="">
+    </div>
+  
+   <div class="comment"> 
+   </div>
+    
+  </div>
+    
+      
+      
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+      <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+      </div>
+     
+<script type="text/template" id="mTpl">
+  {{ each result v i}}
+      <h3>{{v.productName}}</h3>
+      <p>{{v.productFrom}}&nbsp;&nbsp;{{v.productTime}} &nbsp;&nbsp;{{v.productTips}}</p>
+  {{/each}}
+</script>
+
+<script type="text/template" id="InTpl">
+  {{ each result v i}}
+      <div class="right">
+        <img src="images/hua.jpg" alt="">
+      </div>
+      <div class="left">
+       <p>{{v.productInfo}}</p> 
+      </div>
+  {{/each}}
+</script>
+
+<script type="text/template" id="moreTpl">
+  {{ each result v i}}
+      <p>{{v.productInfo1}}</p> 
+      <div class="bar-img">
+        {{#v.productImg}}
+      </div>
+  {{/each}}
+</script>
+ 
+
+<script type="text/template" id="coTpl">
+  {{ each result v i}}
+      {{#v.productComment}}
+  {{/each}}
+</script>
+      
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+   
+    var productId = route.getvalue("productid");
+    var titleWrap = $(".bar-title");
+    var detailWrap = $(".bar-detail");
+    var moreWrap = $(".bar-more");
+    var listWrap = $(".info-list");
+    var coWrap = $(".comment");
+ 
+    var data={productid:productId};
+    route.getdiscountproduct(data,function(info){
+        console.log(info);
+          titleWrap.append(template("mTpl",info));
+          detailWrap.append(template("InTpl",info));
+          moreWrap.append(template("moreTpl",info));
+          coWrap.append(template("coTpl",info));
+         
+    });
+     
+    
+</script>
+</body>
+</html>

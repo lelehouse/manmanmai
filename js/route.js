@@ -2,7 +2,7 @@
  * Created by vzai on 2017/11/28.
  */
 
-;(function(){
+;(function(window){
     var route = {
        baseurl: "http://127.0.0.1:9090/api/",
        setfontsize:setfontsize,
@@ -15,7 +15,11 @@
        getproductlist:getproductlist,
        getproduct:getproduct,
        getproductcom:getproductcom,
-       getmoneyctrlproduct:getmoneyctrlproduct
+       getmoneyctrlproduct:getmoneyctrlproduct,
+       getinlanddiscount:getinlanddiscount,
+       getdiscountproduct:getdiscountproduct,
+       getbaicaijiatitle:getbaicaijiatitle,
+       getbaicaijiaproduct:getbaicaijiaproduct
     };
 
         // 获取地址栏值
@@ -124,6 +128,32 @@
         },'json');
     }
 
+    function getinlanddiscount(data,callback){
+        url = route.baseurl +"getinlanddiscount";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+
+    function getdiscountproduct(data,callback){
+        url = route.baseurl +"getdiscountproduct";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getbaicaijiatitle(callback){
+        url = route.baseurl +"getbaicaijiatitle";
+        $.get(url,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getbaicaijiaproduct(data,callback){
+        url = route.baseurl +"getbaicaijiaproduct";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+
    window.route = route;
 
-})();
+})(window);

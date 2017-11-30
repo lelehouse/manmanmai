@@ -18,7 +18,15 @@ header .topbar {
   font-size: 0.4rem !important;
 }
 .bar .bar-detail {
+  zoom: 1;
   margin-top: 0.5rem;
+}
+.bar .bar-detail:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
 }
 .bar .bar-detail .right {
   float: right;
@@ -37,30 +45,14 @@ header .topbar {
   font-size: 0.6rem;
 }
 .bar .bar-more img {
-  height: 15.25rem;
+  width: 12.65rem;
+  height: 11.5rem;
 }
-.bar .info-list {
-  margin-top: 1.5rem;
+.bar .QR-img {
+  width: 100%;
 }
-.bar .info-list ul {
-  width: 5.75rem;
-  padding: 0.4rem  0.5rem;
-  box-shadow: 0.025rem 0.025rem 0.05rem 0.05rem #ccc;
-  margin: 0 auto;
-}
-.bar .info-list ul li {
-  padding: 0 0.25rem;
-  height: 1.05rem;
-  line-height: 1.05rem;
-  border-bottom: 1px dashed #ccc;
-}
-.bar .info-list ul li span {
-  font-size: 0.4rem;
-  color: #000;
-}
-.bar .info-list ul li span strong {
-  float: right;
-  color: #FF841D;
+.bar .QR-img img {
+  width: 100%;
 }
 .bar .go-buy {
   width: 100%;
@@ -82,27 +74,22 @@ header .topbar {
   transform: translateX(-50%);
   font-size: 0.5rem;
 }
-.bar .QR-img {
-  width: 100%;
-}
-.bar .QR-img img {
-  width: 100%;
-}
-.bar .comment .ui-border-t {
+.bar .comment {
   margin: 1.0rem 0;
 }
-.bar .comment .ui-border-t .tit {
+.bar .comment .tit {
   font-size: 0.75rem;
   color: #000;
 }
-.bar .comment .ui-border-t .reply {
+.bar .comment .reply {
+  width: 17.5rem;
   height: 5.5rem;
   border: 0.025rem solid #ccc;
   background-color: #f1f1f1;
   border-radius: 0.1rem;
   position: relative;
 }
-.bar .comment .ui-border-t .reply textarea {
+.bar .comment .reply textarea {
   width: 100%;
   border-style: none;
   height: 3.575rem;
@@ -110,7 +97,7 @@ header .topbar {
   border-bottom: 1px solid #ccc;
   resize: none;
 }
-.bar .comment .ui-border-t .reply input {
+.bar .comment .reply input {
   width: 5.0rem;
   height: 1.9rem;
   background-color: #FF841D;
@@ -122,53 +109,52 @@ header .topbar {
   right: 0;
   bottom: 0;
 }
-.bar .comment .ui-border-t #newcomment {
+.bar .comment #newcomment {
   font-size: 0.75rem;
   color: #000;
   margin-bottom: 0.5rem;
 }
-.bar .comment .ui-border-t .list li {
+.bar .comment .list li {
   zoom: 1;
   margin-bottom: 0.8rem;
 }
-.bar .comment .ui-border-t .list li:after {
+.bar .comment .list li:after {
   content: "";
   display: block;
   visibility: hidden;
   height: 0;
   clear: both;
 }
-.bar .comment .ui-border-t .list li .con {
+.bar .comment .list li .con {
   margin-left: 2.75rem;
   margin-right: 0.5rem;
   width: 100%;
   font-size: 0.5rem;
   position: relative;
 }
-.bar .comment .ui-border-t .list li .con .username {
+.bar .comment .list li .con .username {
   font-size: 0.4rem;
   margin-top: 0.25rem;
   margin-bottom: 0.35rem;
   color: #5997C0;
 }
-.bar .comment .ui-border-t .list li .con .time {
+.bar .comment .list li .con .time {
   position: absolute;
   top: 0;
   right: 4rem;
   font-size: 0.4rem;
 }
-.bar .comment .ui-border-t .list li .con .content {
+.bar .comment .list li .con .content {
   padding: 0 3rem 0 0;
 }
-.bar .comment .ui-border-t .list li .con .content img {
+.bar .comment .list li .con .content img {
   width: 0.5rem;
   height: 0.5rem;
-  display: inline-block;
 }
-.bar .comment .ui-border-t .list li .userimg {
+.bar .comment .list li .userimg {
   margin-right: 6.25rem;
 }
-.bar .comment .ui-border-t .list li .userimg img {
+.bar .comment .list li .userimg img {
   float: left;
   width: 2.1rem;
   height: 2.1rem;

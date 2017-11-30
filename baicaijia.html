@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/baicaijia.css" />
+    <link rel="icon" href="./favicon.ico" />
+</head>
+
+<body>
+    <header>
+        <div class="topbar clearfix">
+            白菜价-淘宝内部券
+            <img src="./images/header_app.png" alt="">
+        </div>
+    </header>
+    <div class="navbar">
+        <ul>
+           <!-- 第一个坑 -->
+            
+        </ul>
+    </div>
+
+
+    <!-- 商品区域开始 -->
+    <div class="productshow">
+        <ul class="clearfix">
+           
+           <!-- 挖一个坑 -->
+                 
+            
+        </ul>
+    </div>
+
+
+    <!-- 底部开始 -->
+    <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+    </div>
+    <div class="copy">
+        <p>
+            <a href="#" class="download">手机APP下载</a>慢慢买手机版
+            <span>--掌上比价平台</span>
+        </p>
+        <p>
+            <a href="#">m.manmanbuy.com</a>
+        </p>
+    </div>
+
+    <script type="text/html" id="tpl_1">
+        {{each result v i}}
+            <li>
+                <a href="#" class="{{i===0?'now':''}}" data-titleid="{{v.titleId}}">{{v.title}}</a>
+            </li>
+        {{/each}}
+    </script>
+    <script type="text/html" id="tpl_2">
+        {{each result v i}}
+        <li data-productId="{{v.productId}}">
+                <a href="#" class="product_l">
+                      {{#v.productImg}}
+                </a>
+                <div class="product_r">
+                    <p class="desc">
+                       {{#v.productName}}
+                    </p>
+                    <p class="forprice">
+                        {{#v.productPrice}}
+                        <!-- <span class="price">111</span>
+                        <span class="oldprice">222</span> -->
+                    </p>
+                    <div class="progress">
+                        {{#v.productCouponRemain}}
+                    </div>
+                    <div id="discount">
+                         {{#v.productCoupon}}
+                         {{#v.productHref}}
+                    </div>
+                </div>
+         </li>
+        {{/each}}
+    </script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/route.js"></script>
+    <script>
+
+        
+        route.getbaicaijiatitle(function(info){
+            // console.log(info);
+            $('.navbar ul').html(template('tpl_1',info));
+            render();
+        });
+        $('.navbar ul').on('click','a',function(){
+              //发送ajax渲染商品
+              $(this).addClass('now').parent().siblings().find('a').removeClass('now');
+              render();
+        });
+        
+
+
+        function render(){
+            var titleid = $('.now').data('titleid');
+             var data = {titleid:titleid};
+             route.getbaicaijiaproduct(data,function(info){
+                console.log(info);
+                $('.productshow ul').html(template('tpl_2',info));
+             });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/inlanddiscount.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            国内折扣
+            <img src="./images/header_app.png" alt="">
+        </div>
+    </header>
+ 
+    <!-- 商品展示区域 -->
+    <div class="products_show">
+        <ul class="clearfix">
+           <!-- 挖一个坑 -->
+        </ul>
+    </div>
+
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+      <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+      </div>
+      
+<script type="text/html" id="tpl_1">
+    {{each result v i}}
+    <li>
+            <a href="discount.html?productid={{v.productId}}">
+                {{#v.productImg}}
+                <p class="desc"> {{v.productName}}</p>
+                <p class="price">{{v.productPrice}}</p>
+                <p class="infofrom">
+                    <span class="from">{{v.productFrom}}&nbsp;|</span>
+                    <span class="time">{{v.productTime}}</span>
+                </p>
+            </a>
+    </li>
+    {{/each}}
+</script>
+<script type="text/html" id="tpl_2">
+   
+</script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+
+     route.getinlanddiscount(function(info){
+        console.log(info);
+        $('.products_show ul').html(template('tpl_1',info));
+     });
+</script>
+</body>
+</html>
