@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/couponproduct.css" />
+    <link rel="icon" href="./favicon.ico" />
+</head>
+
+<body>
+    <header>
+        <div class="goback">
+             <a href="javascript:history.go(-1);" > < </a>
+        </div>
+        <div class="topbar clearfix">
+            <!-- 小坑 -->
+        </div>                
+    </header>
+    
+    <div class="coupon_main">
+        <ul class="clearfix">
+           <!-- 挖一个坑 -->
+        </ul>
+    </div>
+
+    <h4>--点餐前出示手机中的优惠券，即可享受优惠--</h4>
+    <div class="coup_pro_main">
+        <ul>
+           <!-- 挖一个坑 -->
+        </ul>
+    </div>
+    
+    <!-- 轮播图隐藏的盒子 -->
+    <div class="fullbox now">
+        <div class="show_box">
+            <a href="javascript:;" class="arrow_left"> < </a>
+               <div class="img_box"> <img src="./images/haitao.png" alt=""> </div>
+            <a href="javascript:;" class="arrow_right"> > </a>
+        </div>
+    </div>
+    <!-- 底部开始 -->
+    <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+    </div>
+    <div class="copy">
+        <p>
+            <a href="#" class="download">手机APP下载</a>慢慢买手机版
+            <span>--掌上比价平台</span>
+        </p>
+        <p>
+            <a href="#">m.manmanbuy.com</a>
+        </p>
+    </div>
+
+    <script type="text/html" id="tpl_titlename">
+        {{couponTitle}}
+        <img src="./images/header_app.png" alt="">
+    </div>
+    </script>
+    <script type="text/html" id="tpl">
+        {{each result v i}}
+               <li class="clearfix">
+                <a href="#" class="c_left pull-left" data-index={{v.couponProductId}}>
+                    {{#v.couponProductImg}}
+                </a>
+                <a href="#" class="c_right pull-right">
+                    <p class="couponame">{{v.couponProductName}}</p>
+                    <p class="couponprice">{{v.couponProductPrice}}</p>
+                    <p class="coupontime">{{v.couponProductTime}}</p>
+                </a>
+            </li>
+        {{/each}}
+    </script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/route.js"></script>
+    <script>
+        var length = 0;
+        var couponTitle = route.getvalue('couponTitle');
+        $('.topbar').html(template('tpl_titlename',{couponTitle:couponTitle}));
+        var data = {couponid:route.getvalue('couponid')};
+        route.getcouponproduct(data,function(info){
+            // console.log(info);
+            $('.coup_pro_main ul').html(template('tpl',info));
+            length = $('.coup_pro_main li').length;
+        });
+
+
+        var index=0;
+        var timer = null;
+        $('.coup_pro_main ul').on('click','.c_left',function(){
+            var src = $(this).find('img').attr('src');
+            var index = $(this).data('index');
+            $('.fullbox img').attr('src',src);
+            $('.fullbox').removeClass('now');
+            // 自动轮播
+            clearInterval(timer);
+            swiper();
+        });
+
+        function swiper(){
+            timer = setInterval(function(){
+                index>=length?index=0:index++;
+                // console.log(index);
+                var src = $( $('.coup_pro_main li')[index] ).find('img').attr('src');
+                $('.fullbox img').attr('src',src);
+            },1000);
+        }
+
+        // 左右点击切换图片
+        $('.arrow_left').on('click',function(){
+            // console.log(1111);
+            clearInterval(timer);
+            
+            index<=0?index=length:index--;
+
+            // if(index<=0){return false;}
+            index--;
+            var src = $( $('.coup_pro_main li')[index] ).find('img').attr('src');
+            $('.fullbox img').attr('src',src);
+        });
+        $('.arrow_right').on('click',function(){
+            // console.log(222);
+            clearInterval(timer);
+            
+            index>=length?index=0:index++;
+            
+            // if(index>=length){return false;}
+            index++;
+            var src = $( $('.coup_pro_main li')[index] ).find('img').attr('src');
+            $('.fullbox img').attr('src',src);
+        });
+        
+    </script>
+</body>
+
+</html>

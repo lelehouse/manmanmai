@@ -68,10 +68,10 @@
 <script type="text/html" id="tpl_2">
     {{each result v i}}
     <li data-productId="{{v.productId}}">
-        <a href="#" class="product_l">                  
+        <a href="moneyproduct.html?productid={{v.productId}}" class="product_l">                  
               {{#v.productImgSm}}
         </a>
-        <a href="#" class="product_r">
+        <a href="moneyproduct.html?productid={{v.productId}}" class="product_r">
             <p class="desc">
                 {{v.productName}}
                 <strong>{{v.productPinkage}}</strong>
@@ -86,7 +86,7 @@
 <script src="./js/route.js"></script>
 <script>
     route.getindexmenu(function(info){
-        console.log(info);
+        // console.log(info);
         $('.getindexmenu').html(template('tpl_1',info)) 
         $('.getindexmenu li').eq(7).on('click',function(){
             $('.getindexmenu li').each(function(i,e){
@@ -98,7 +98,7 @@
         });
     });
     route.getmoneyctrl(function(info){
-        // console.log(info);
+        console.log(info);
         $('.getmoneyctrl').html(template('tpl_2',info));
         
     });

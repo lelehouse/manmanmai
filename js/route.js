@@ -19,7 +19,9 @@
        getinlanddiscount:getinlanddiscount,
        getdiscountproduct:getdiscountproduct,
        getbaicaijiatitle:getbaicaijiatitle,
-       getbaicaijiaproduct:getbaicaijiaproduct
+       getbaicaijiaproduct:getbaicaijiaproduct,
+       getcoupon:getcoupon,
+       getcouponproduct:getcouponproduct
     };
 
         // 获取地址栏值
@@ -153,6 +155,20 @@
             callback&&callback(info);
         },'json');
     }
+
+    function getcoupon(callback){
+        url = route.baseurl +"getcoupon";
+        $.get(url,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getcouponproduct(data,callback){
+        url = route.baseurl +"getcouponproduct";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+ 
 
    window.route = route;
 

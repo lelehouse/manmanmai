@@ -65,6 +65,9 @@
 .canshu a:last-of-type {
   border-right: none;
 }
+.canshu a:last-of-type:before {
+  content: none;
+}
 .table {
   text-align: right;
   height: 2.2rem;

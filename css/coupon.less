@@ -1,0 +1,57 @@
+@charset 'utf-8';
+@color:#F4483E;
+html,body{
+    background-color: #eee;
+    -webkit-tap-highlight-color: none;
+}
+header{
+    margin:0;
+    .topbar{
+      background:@color;
+      text-align: center;
+      padding-left: 1.7rem;
+      line-height: 2.5rem;
+      color: #fff;
+    }
+   
+}
+
+.center(){
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.coupon_main{
+    background-color: #fff;
+    ul{
+        padding:.25rem .25rem 1.25rem .25rem;
+        width: 100%;
+        li{
+            float: left;
+            width: 5.75rem;
+            height: 3.75rem;
+            border: 1px solid #ccc;
+            margin:.5rem .5rem 0 0 ;
+            &:nth-of-type(3n){
+                margin-right:0;
+            }
+            a{  
+                text-align: center;
+                display: block;
+
+                img{
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    display: block;
+                    margin: .25rem  auto;
+                }
+                p{
+                    font-size: .5rem;
+                    height:.5rem;
+                    line-height:.5rem;
+                }
+            }
+         }
+    }
+}

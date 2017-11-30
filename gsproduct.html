@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="../js/rem.js"></script>
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/moneyproduct.css"/>
+<link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+<!-- header -->
+  <header>
+    <div class="goback">
+        <a href="javascript:history.go(-1);" > <i class="iconfont">&#xf0343;</i> </a>
+   </div>
+    <div class="topbar clearfix">
+        凑单品
+        <img src="./images/header_app.png" alt="">
+    </div>
+  </header>
+<!-- header -->
+
+<nav class="nav">
+  <div class="right"></div>
+  <div class="left">
+    <div class="site">
+      <span>京东</span>
+      
+      <ul class="site-wrap">
+          <li data-shop-id ={{value.shopId}}>
+              cccc
+            <s></s>
+            </li>
+      </ul>
+     
+    </div>
+    <div class="area">
+      <span>西北</span>
+      <ul class="area-wrap">
+          <li data-area-id ={{v.areaId}}>
+              aaaa
+            <s></s>
+            </li>
+      </ul>
+    </div>
+    <div class="price">
+      <span>全部价格</span>
+      <ul class="price-wrap">
+        <li>全部价格
+        <s class="expo"></s>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="list">
+  <ul>
+    <li>
+      <div class="item">
+        <div class="mage">
+           <img src="images/shua.jpg" alt="">
+        </div>
+        <p>【京东超市】一楠 咖啡 白咖啡 三合一速溶咖啡单条装 15g/条</p>
+        <div class="price">
+          ￥0.50
+        </div>
+        <a href="#" class="buy">去凑单</a>
+      </div>
+    </li> 
+    <li>
+      <div class="item">
+        <div class="mage">
+           <img src="images/shua.jpg" alt="">
+        </div>
+        <p>【京东超市】一楠 咖啡 白咖啡 三合一速溶咖啡单条装 15g/条</p>
+        <div class="price">
+          <span>￥0.50</span>
+        </div>
+        <a href="#" class="buy">去凑单</a>
+      </div>
+    </li> 
+  </ul>
+</div>
+
+
+
+<div class="footer">
+  <a href="javascript:;" class="footer-border">登录</a>
+  <a href="javascript:;" class="footer-border">注册</a>
+  <a href="#">返回顶部</a>
+</div>
+<div class="copy">
+  <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+  <p><a href="#">m.manmanbuy.com</a></p>
+</div>
+
+<script type="text/template" id="siteTpl">
+  {{each result v i}}
+      <li data-shop-id ={{value.shopId}}>
+        cccc
+      <s></s>
+      </li>
+  {{/each}}
+</script>
+
+<script type="text/template" id="areaTpl">
+  {{each result v i}}
+  <li data-area-id ={{v.areaId}}>
+      aaaa
+    <s></s>
+    </li>
+  {{/each}}
+</script>
+ 
+</script>
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+</body>
+</html>

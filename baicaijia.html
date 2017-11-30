@@ -14,30 +14,26 @@
 
 <body>
     <header>
+        <div class="goback">
+             <a href="javascript:history.go(-1);" > < </a>
+        </div>
         <div class="topbar clearfix">
             白菜价-淘宝内部券
             <img src="./images/header_app.png" alt="">
         </div>
     </header>
     <div class="navbar">
-        <ul>
+        <ul class="clearfix">
            <!-- 第一个坑 -->
             
         </ul>
     </div>
-
-
     <!-- 商品区域开始 -->
     <div class="productshow">
         <ul class="clearfix">
-           
            <!-- 挖一个坑 -->
-                 
-            
         </ul>
     </div>
-
-
     <!-- 底部开始 -->
     <div class="footer">
         <a href="javascript:;" class="footer-border">登录</a>
@@ -73,8 +69,6 @@
                     </p>
                     <p class="forprice">
                         {{#v.productPrice}}
-                        <!-- <span class="price">111</span>
-                        <span class="oldprice">222</span> -->
                     </p>
                     <div class="progress">
                         {{#v.productCouponRemain}}
@@ -92,7 +86,6 @@
     <script src="./js/route.js"></script>
     <script>
 
-        
         route.getbaicaijiatitle(function(info){
             // console.log(info);
             $('.navbar ul').html(template('tpl_1',info));
@@ -103,8 +96,7 @@
               $(this).addClass('now').parent().siblings().find('a').removeClass('now');
               render();
         });
-        
-
+ 
 
         function render(){
             var titleid = $('.now').data('titleid');
@@ -114,6 +106,54 @@
                 $('.productshow ul').html(template('tpl_2',info));
              });
         }
+
+
+
+  window.onload = function(){
+    titleslide();
+   }
+
+ function titleslide(){
+     var slideulwidth =0;
+     document.querySelectorAll('.navbar li').forEach(function(e){
+        slideulwidth +=e.offsetWidth;
+     });    
+     
+     var startX = moveX = distanceX = currentX = 0;
+     var slideTop = document.querySelector('.navbar');
+     var slideul = slideTop.querySelector('ul');
+     $(slideul).css('width',slideulwidth);
+     slideul.addEventListener('touchstart',function(e){
+         startX = e.touches[0].clientX;
+     });
+     slideul.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        moveX = e.touches[0].clientX;
+        distanceX = moveX - startX;
+        if((currentX+distanceX)<slidemax && (currentX+distanceX)>slidemin){
+            slideul.style.transform = 'translateX('+(distanceX+currentX)+'px)';
+            slideul.style.transition= 'all .2s';
+        }
+     });
+     slideul.addEventListener('touchend',function(){
+         currentX +=distanceX;
+         if(currentX > positionmax){
+            currentX = 0;
+         }
+         if(currentX < positionmin){
+            currentX = positionmin;
+         }
+         slideul.style.transform = 'translateX('+currentX+'px)';
+         slideul.style.transition= 'all .2s';
+     });
+     
+     var width = slideTop.offsetWidth;
+     var positionmax = 0 ;
+     var positionmin = width - slideulwidth;
+     console.log(positionmin);
+     var slidemax = 0 + 100;
+     var slidemin =positionmin -100;
+ }
     </script>
 </body>
 

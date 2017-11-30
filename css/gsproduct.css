@@ -1,0 +1,173 @@
+@charset "utf-8";
+header .topbar {
+  background: #FF841D;
+  text-align: center;
+  padding-left: 1.7rem;
+  line-height: 2.5rem;
+  color: #fff;
+}
+/* 垂直居中公共类 */
+.nav {
+  width: 100%;
+  height: 1.85rem;
+  background-color: #fff;
+  margin-bottom: 0.25rem;
+}
+.nav .right {
+  width: 1.25rem;
+  height: 100%;
+  float: right;
+  background: url(../images/search.svg) 0 0 no-repeat;
+  background-size: 100%;
+  -webkit-background-size: 100%;
+}
+.nav .left {
+  margin-right: 1.25rem;
+  height: 100%;
+  position: relative;
+}
+.nav .left > div {
+  float: left;
+  width: 33.3333%;
+  height: 1.85rem;
+}
+.nav .left > div > span {
+  display: block;
+  width: 100%;
+  height: 1.85rem;
+  line-height: 1.85rem;
+  text-align: center;
+  font-size: 0.4rem;
+  position: relative;
+}
+.nav .left > div > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url(../images/up.svg) 0 0 no-repeat;
+  background-size: 100%;
+  -webkit-background-size: 100%;
+}
+.nav .left > div > ul {
+  display: none;
+  width: 18.75rem;
+  box-shadow: 0 0 2px 2px #ccc;
+  border: 1px solid #ccc;
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  z-index: 1000;
+  font-size: 0.45rem;
+}
+.nav .left > div > ul.site-wrap {
+  display: none;
+}
+.nav .left > div > ul.site-wrap.show {
+  display: block;
+}
+.nav .left > div > ul.area-wrap {
+  display: none;
+}
+.nav .left > div > ul.area-wrap.show {
+  display: block;
+}
+.nav .left > div > ul.price-wrap {
+  display: none;
+}
+.nav .left > div > ul.price-wrap.show {
+  display: block;
+}
+.nav .left > div > ul > li {
+  height: 1.75rem;
+  line-height: 1.75rem;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  text-indent: 0.4em;
+  position: relative;
+}
+.nav .left > div > ul > li > s {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.25rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url(../images/duihao.svg) 0 0 no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  display: none;
+}
+.nav .left > div > ul > li > s.expo {
+  display: block;
+}
+.list ul {
+  zoom: 1;
+}
+.list ul:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.list ul li {
+  float: left;
+  width: 47%;
+  height: 11.5rem;
+  margin-left: 2%;
+  background-color: #fff;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+.list ul li .swit {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 9rem;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.list ul li .item {
+  width: 100%;
+  height: 11.5rem;
+  display: block;
+  position: relative;
+  padding-top: 0.25rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.list ul li .item .mage {
+  height: 8.5rem;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.list ul li .item p {
+  color: #000;
+  font-size: 0.4rem;
+}
+.list ul li .item .price {
+  font-size: 0.6rem;
+  color: red;
+  margin-top: 0.6rem;
+  margin-left: 0.3rem;
+}
+.list ul li .item .buy {
+  position: absolute;
+  right: 0.25rem;
+  bottom: 0.24rem;
+  width: 3.1rem;
+  height: 1.3rem;
+  background-color: #FF841D;
+  border: 1px solid #FF7C00;
+  border-radius: 0.1rem;
+  font-size: 0.45rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.3rem;
+}
