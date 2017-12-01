@@ -6,7 +6,7 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="../js/rem.js"></script>
 <link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/moneyproduct.css"/>
+<link rel="stylesheet" href="./css/sitenav.css"/>
 <link rel="icon" href="./favicon.ico"/>
 </head>
 <body>
@@ -42,17 +42,22 @@
 <script type="text/template" id="navTpl">
   {{each result v i}}
       <li>
-      <a href="">
-        <img src="" alt="">
-        <span>1111</span>
+      <a href="{{v.navHref}}">
+        <img src="{{v.navImg}}" alt="">
+        <span>{{v.navTitle}}</span>
       </a>
     </li>
   {{/each}}
 </script>
 
-
 <script src="./js/jquery.min.js"></script>
 <script src="./js/template-web.js"></script>
 <script src="./js/route.js"></script>
+<script>
+  route.getsitenav(function(result){
+    console.log(result);
+    $(".nav ul").html( template('navTpl',result) );
+  });
+</script>
 </body>
 </html>

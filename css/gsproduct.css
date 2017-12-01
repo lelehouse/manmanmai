@@ -37,7 +37,7 @@ header .topbar {
   height: 1.85rem;
   line-height: 1.85rem;
   text-align: center;
-  font-size: 0.4rem;
+  font-size: 0.8rem;
   position: relative;
 }
 .nav .left > div > span:after {
@@ -95,7 +95,7 @@ header .topbar {
   right: 0.25rem;
   width: 0.6rem;
   height: 0.6rem;
-  background: url(../images/duihao.svg) 0 0 no-repeat;
+  background: url(images/duihao.svg) 0 0 no-repeat;
   -webkit-background-size: 100%;
   background-size: 100%;
   display: none;
@@ -147,9 +147,19 @@ header .topbar {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.list ul li .item .mage img {
+  width: 100%;
+  height: 8.5rem;
+  display: block;
+}
 .list ul li .item p {
   color: #000;
   font-size: 0.4rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .list ul li .item .price {
   font-size: 0.6rem;

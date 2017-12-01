@@ -45,7 +45,7 @@ h4 {
   color: #EE8047;
 }
 .fullbox {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;

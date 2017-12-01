@@ -95,10 +95,18 @@
         var index=0;
         var timer = null;
         $('.coup_pro_main ul').on('click','.c_left',function(){
+        //    全部禁止滚动功能等待实现
+            
+
+// ----------------------------------------
+
+
             var src = $(this).find('img').attr('src');
             var index = $(this).data('index');
             $('.fullbox img').attr('src',src);
-            $('.fullbox').removeClass('now');
+            // $('.fullbox').removeClass('now');
+            $('.fullbox').fadeIn();
+            
             // 自动轮播
             clearInterval(timer);
             swiper();
@@ -110,7 +118,8 @@
                 // console.log(index);
                 var src = $( $('.coup_pro_main li')[index] ).find('img').attr('src');
                 $('.fullbox img').attr('src',src);
-            },1000);
+                $('.fullbox img').attr('alt',index);
+            },1500);
         }
 
         // 左右点击切换图片
@@ -124,6 +133,7 @@
             index--;
             var src = $( $('.coup_pro_main li')[index] ).find('img').attr('src');
             $('.fullbox img').attr('src',src);
+            $('.fullbox img').attr('alt',index);
         });
         $('.arrow_right').on('click',function(){
             // console.log(222);
@@ -135,8 +145,31 @@
             index++;
             var src = $( $('.coup_pro_main li')[index] ).find('img').attr('src');
             $('.fullbox img').attr('src',src);
+            $('.fullbox img').attr('alt',index);
         });
         
+
+        // 点击中间图片，定位到当前的位置
+        $('.img_box').on('click',function(){
+            clearInterval(timer);
+            $('.fullbox').fadeOut();
+            // $('body').attr('overflow','auto');
+            // 启用滚动条功能
+            // 。。。。。。。。。。。。。。。。。。。。。。。
+
+
+            var lisindex = $('.fullbox img').attr('alt');
+            var totalheight =0;
+            var lis =  $('.coup_pro_main li');
+          
+            for(var i ; i<lisindex;i++){
+                totalheight += lis[i].offsetHeight;
+            }
+            console.log(totalheight);
+            // 为什么拿不到总的高度
+             
+
+        })
     </script>
 </body>
 

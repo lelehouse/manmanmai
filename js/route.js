@@ -21,7 +21,15 @@
        getbaicaijiatitle:getbaicaijiatitle,
        getbaicaijiaproduct:getbaicaijiaproduct,
        getcoupon:getcoupon,
-       getcouponproduct:getcouponproduct
+       getcouponproduct:getcouponproduct,
+       getgsshop:getgsshop,
+       getgsshoparea:getgsshoparea,
+       getgsproduct:getgsproduct,
+       getsitenav:getsitenav,
+       getbrandtitle:getbrandtitle,
+       getbrand:getbrand,
+       getproductcom:getproductcom,
+       getbrandproductlist:getbrandproductlist
     };
 
         // 获取地址栏值
@@ -169,7 +177,64 @@
         },'json');
     }
  
-
+    function getgsshop(callback){
+        url = route.baseurl +"getgsshop";
+        $.get(url,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getgsshoparea(callback){
+        url = route.baseurl +"getgsshoparea";
+        $.get(url,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getgsproduct(data,callback){
+        url = route.baseurl +"getgsproduct";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getsitenav(callback){
+        url = route.baseurl +"getsitenav";
+        $.get(url,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getbrandtitle(callback){
+        url = route.baseurl +"getbrandtitle";
+        $.get(url,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getbrand(data,callback){
+        url = route.baseurl +"getbrand";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    function getproductcom(data,callback){
+        url = route.baseurl +"getproductcom";
+        $.get(url,data,function(info){
+            callback&&callback(info);
+        },'json');
+    }
+    
+    
+    function getbrandproductlist(data,success,complete){
+        url = route.baseurl +"getbrandproductlist";
+        $.ajax({
+            url:url,
+            type:"get",
+            data:data,
+            success:function(info){
+                success&&success(info);
+            },
+            complete:function(){
+                complete&&complete();
+            }
+        });
+    }
    window.route = route;
 
 })(window);

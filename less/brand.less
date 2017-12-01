@@ -1,0 +1,181 @@
+
+@charset 'utf-8';
+html,body{
+    background-color: #fff;
+}
+header{
+    margin-bottom: 0;
+}
+.nav{
+  border: 0.025rem solid #ccc;
+  background-color: #eee;
+  padding-left: .5rem;
+  ul{
+      width: 100%;
+      position: relative;
+      li{
+          float: left;
+          font-size: 0.75rem;
+          height:1.875rem;
+          line-height: 1.875rem;
+          a{
+              display: block;
+              text-align: center;
+              font-size: 0.75rem;
+          }
+      }
+  }
+}
+ 
+h4{
+    height:1.9rem;
+    line-height: 1.9rem;
+    padding-left: .5rem;
+    font-size: .75rem;
+    color: #772301;
+    background-color: #eee;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #ccc;
+}
+
+.sort{
+    .sort-box{
+        li{
+            height: 3.3rem;
+            border-bottom: 1px solid #ccc;
+            padding: .5rem;
+            a{
+                display: block;
+                .brandname{
+                    height: 1rem;
+                    font-size: .75rem;
+                    span{
+                         background-color: #C9C9C9;
+                         padding:.2rem .4rem;
+                         color: #fff;
+                         font-size: .6rem;
+                         line-height: 1rem;
+                         text-align: 1rem;
+                         margin-right: .3rem;
+                    }
+                }
+                .sellnum{
+                    font-size: .7rem;
+                    padding-left:1rem;
+                    padding-top: .3rem;
+                    color: #ccc;
+                    // height: 1rem;
+                    // line-height: 1rem;
+                }
+            }
+            &:nth-of-type(1) a span{
+                background-color: #F10E0E;
+            }
+            &:nth-of-type(2) a span{
+               background-color: #FF9314;
+           }
+           &:nth-of-type(3) a span{
+               background-color: #8ADF5B;
+           }
+             
+        }
+      
+    }
+}
+
+.sell_sort{
+    .sell_sort-box{
+        li{
+            height: 6rem;
+            padding:.5rem;
+            border-bottom: 1px solid #ccc;
+            .sell_left{
+                float: left;
+                width: 5rem;
+                height: 5rem;
+                img{
+                    display: block;
+                    width: 4.7rem;
+                    height: 4.7rem;
+                }
+            }
+            .sell_right{
+                .sell_desc{
+                    height:2.25rem;
+                    font-size: .8rem;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                }
+                .price{
+                    font-size: .9rem;
+                    color:red;
+                }
+                .feedback{
+                   padding-top: .2rem;
+                    font-size: .7rem;
+                    color: #ccc;
+                }
+            }
+        }
+    }
+}
+
+
+.comment{
+    .comment-box{
+        li{
+            .comm_top{
+                height: 6rem;
+                padding:.5rem;
+                .sell_left{
+                    float: left;
+                    width: 5rem;
+                    height: 5rem;
+                    img{
+                        display: block;
+                        width: 4.7rem;
+                        height: 4.7rem;
+                    }
+                }
+                .sell_right{
+                    .sell_desc{
+                        height:2.25rem;
+                        font-size: .8rem;
+                        overflow:hidden;
+                        text-overflow:ellipsis;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                        color: #999;
+                    }
+                }
+            }
+            .content_comment{
+                border: 1px solid #ccc;
+                margin: .5rem;
+                background-color: #eee;
+                padding: .5rem;
+                p{
+                    span{
+                        font-size: .7rem;
+                        &.pull-left{
+                            color: #304700;
+                        }
+                        &.pull-right{
+                            color:#C9C9C9;
+                        }
+                    }
+                }
+                .content_box{
+                     font-size: .75rem;
+                     margin-top: .5rem;
+                }
+            }
+        }
+    }
+}

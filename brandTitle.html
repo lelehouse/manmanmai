@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/brandtitle.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            <img src="./images/header_app.png" alt="">
+        </div>
+        <div class="search_input clearfix">
+            <input type="search" name="" placeholder="请输入你想比价的商品"/>
+            <a href="#">搜索</a>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="nav">
+         <ul class="clearfix">
+            <li><a href="index.html">首页>></a></li>
+            <li><a href="category.html" class="titlecate">全部分类>></a></li>
+         </ul>
+    </div>
+
+    <div class="category">
+        <ul class="cate-box">
+             <!-- 挖个坑 -->
+        </ul>
+    </div>
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+    <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+     </div>
+      
+     <script type="text/template" id="cateTpl">
+        {{each result v i}}
+           <li class="cate-title">
+            <p data-titleid = {{v.brandTitleId}}>   
+                {{v.brandTitle}}
+            </p>
+           </li>
+        {{/each}}
+      </script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+   route.getbrandtitle(function(result){
+       console.log(result);
+       $('.cate-box').html(template('cateTpl',result));
+       $('.cate-title').on('click',function(){
+        var titleid =$(this).find('p').data('titleid');
+        console.log(titleid);
+          window.location.href="brand.html?brandtitleid="+titleid;
+        });
+   });
+   
+ 
+</script>
+</body>
+</html>

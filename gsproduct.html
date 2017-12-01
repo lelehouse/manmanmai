@@ -6,14 +6,14 @@
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="../js/rem.js"></script>
 <link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/moneyproduct.css"/>
+<link rel="stylesheet" href="./css/gsproduct.css"/>
 <link rel="icon" href="./favicon.ico"/>
 </head>
 <body>
 <!-- header -->
   <header>
     <div class="goback">
-        <a href="javascript:history.go(-1);" > <i class="iconfont">&#xf0343;</i> </a>
+        <a href="javascript:history.go(-1);" > < </a>
    </div>
     <div class="topbar clearfix">
         凑单品
@@ -29,20 +29,14 @@
       <span>京东</span>
       
       <ul class="site-wrap">
-          <li data-shop-id ={{value.shopId}}>
-              cccc
-            <s></s>
-            </li>
+          
       </ul>
      
     </div>
     <div class="area">
       <span>西北</span>
       <ul class="area-wrap">
-          <li data-area-id ={{v.areaId}}>
-              aaaa
-            <s></s>
-            </li>
+          
       </ul>
     </div>
     <div class="price">
@@ -59,30 +53,7 @@
 
 <div class="list">
   <ul>
-    <li>
-      <div class="item">
-        <div class="mage">
-           <img src="images/shua.jpg" alt="">
-        </div>
-        <p>【京东超市】一楠 咖啡 白咖啡 三合一速溶咖啡单条装 15g/条</p>
-        <div class="price">
-          ￥0.50
-        </div>
-        <a href="#" class="buy">去凑单</a>
-      </div>
-    </li> 
-    <li>
-      <div class="item">
-        <div class="mage">
-           <img src="images/shua.jpg" alt="">
-        </div>
-        <p>【京东超市】一楠 咖啡 白咖啡 三合一速溶咖啡单条装 15g/条</p>
-        <div class="price">
-          <span>￥0.50</span>
-        </div>
-        <a href="#" class="buy">去凑单</a>
-      </div>
-    </li> 
+     <!-- 挖一个坑 -->
   </ul>
 </div>
 
@@ -100,8 +71,8 @@
 
 <script type="text/template" id="siteTpl">
   {{each result v i}}
-      <li data-shop-id ={{value.shopId}}>
-        cccc
+      <li data-shop-id ={{v.shopId}}>
+       {{v.shopName}}
       <s></s>
       </li>
   {{/each}}
@@ -110,16 +81,90 @@
 <script type="text/template" id="areaTpl">
   {{each result v i}}
   <li data-area-id ={{v.areaId}}>
-      aaaa
+      {{v.areaName}}
     <s></s>
     </li>
   {{/each}}
 </script>
  
+<script type="text/html" id="listtpl">
+  {{each result v i }}
+    <li>
+      <div class="item">
+        <div class="mage">
+          <img src=" {{#v.productImg}}" alt="">
+        </div>
+        <p>{{v.productName}}</p>
+        <div class="price">
+          {{v.productPrice}}
+        </div>
+        <a href="#" class="buy">去凑单</a>
+      </div>
+    </li> 
+  {{/each}}
 </script>
 
 <script src="./js/jquery.min.js"></script>
 <script src="./js/template-web.js"></script>
 <script src="./js/route.js"></script>
+
+<script>
+   var shopid=0;
+   var areaid=0;
+   var data = {
+    shopid:shopid,
+    areaid:areaid
+   }
+  route.getgsshop(function(result){
+      // console.log(result);
+      $('.site-wrap').html(template('siteTpl',result));
+     
+     
+      $('.site').on('click',function(){
+        $('.site-wrap').toggleClass('show');
+      });
+     
+  });
+
+  // 点击对应的店铺名称
+  $('.site-wrap').on('click','li',function(){
+      $('.site span').text($(this).text());
+      shopid=$(this).data('shop-id');
+      data.shopid = shopid;
+      render();
+  });
+
+
+  route.getgsshoparea(function(result){
+    // console.log(result);
+    $('.area-wrap').html(template('areaTpl',result));
+
+    $('.area').on('click',function(){
+        $('.area-wrap').toggleClass('show');
+    });
+  });
+
+  // 点击对应区域名称
+  $('.area-wrap').on('click','li',function(){
+      $('.area span').text($(this).text().trim().split('')[0]+$(this).text().trim().split('')[1]);
+      areaid=$(this).data('area-id');
+      // console.log(areaid);
+      data.areaid = areaid;
+      render();
+    });
+
+  // getgsproduct  : shopid areaid 
+   function render(){
+      route.getgsproduct(data,function(result){
+        // console.log(result);
+        $('.list ul').html(template('listtpl',result));
+      });
+   }
+  
+
+  
+   render();
+
+</script>
 </body>
 </html>

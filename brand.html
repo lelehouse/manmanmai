@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+     <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/brand.css"/>
+    <link rel="icon" href="./favicon.ico"/>
+</head>
+<body>
+    <header>
+        <div class="topbar clearfix">
+            <img src="./images/header_app.png" alt="">
+        </div>
+        <div class="search_input clearfix">
+            <input type="search" name="" placeholder="请输入你想比价的商品"/>
+            <a href="#">搜索</a>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="nav">
+         <ul class="clearfix">
+            <li><a href="index.html">首页>></a></li>
+            <li><a href="category.html" class="titlecate">全部分类>></a></li>
+         </ul>
+    </div>
+    <h4><span>电视</span>那个品牌好</h4>
+    <div class="sort">
+        <ul class="sort-box">
+             <!-- 挖个坑 -->
+             
+        </ul>
+    </div>
+
+    <h4><span>电视</span>产品销量排行</h4>
+    <div class="sell_sort">
+        <ul class="sell_sort-box">
+             <!-- 挖个坑 -->
+            
+        </ul>
+    </div>
+
+    <h4><span>电视</span>最新评论</h4>
+    <div class="comment">
+        <ul class="comment-box">
+             <!-- 挖个坑 -->
+            
+        </ul>
+    </div>
+
+    <!-- 底部开始 -->
+     <div class="footer">
+        <a href="javascript:;" class="footer-border">登录</a>
+        <a href="javascript:;" class="footer-border">注册</a>
+        <a href="#">返回顶部</a>
+      </div>
+    <div class="copy">
+        <p><a href="#" class="download">手机APP下载</a>慢慢买手机版<span>--掌上比价平台</span></p>
+        <p><a href="#">m.manmanbuy.com</a></p>
+     </div>
+      
+
+     <script type="text/template" id="sorttpl">
+        {{each result v i}}
+        <li>
+            <a href="javascript:;">
+              <p class="brandname"><span>{{i+1}}</span>{{v.brandName}}</p>
+              <p class="sellnum">{{v.brandInfo}}</p>
+            </a>
+         </li>
+        {{/each}}
+      </script>
+
+      <script type="text/template" id="selltpl">
+        {{each result v i}}
+           <li data-productid="{{v.productId}}" data-proname="{{v.productName}}" data-strimg="{{v.productImg}}" data-brandtitleid="{{v.brandTitleId}}" class="clearfix">
+                <a href="javascript:;" class="sell_left">
+                    {{#v.productImg}}
+                </a>
+                <a href="javascript:;" class="sell_right">
+                    <p class="sell_desc">{{v.productName}}</p>
+                    <p class="price">{{v.productPrice}}</p>
+                    <p class="feedback"><span>{{v.productQuote}}</span> <span>{{v.productCom}}</span></p>
+                </a>
+            </li>
+        {{/each}}
+      </script>
+
+      <script type="text/template" id="commenttpl">
+        {{each result v i}}
+          <li class="clearfix">
+                <div class="comm_top">
+                    <!-- 再挖一个坑 -->
+                    <a href="javascript:;" id="gotome" class="sell_left">
+                            
+                       </a>
+                       <a href="javascript:;" class="sell_right">
+                          <p class="sell_desc">   </p>
+                    </a>
+                </div>
+               
+               <div class="content_comment">
+                    <p class="clearfix">
+                        <span class="pull-left">{{v.comName}}</span>
+                        <span class="pull-right">{{v.comTime}}</span>
+                    </p>
+                    <div class="content_box">
+                       {{v.comContent}} &nbsp;&nbsp;{{v.comFrom}}
+                    </div>
+               </div>
+           </li>
+        {{/each}}
+      </script> 
+ 
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/route.js"></script>
+<script>
+    var brandtitleid = route.getvalue('brandtitleid');
+    var data = {brandtitleid:brandtitleid};
+    // 将十大品牌列表渲染到页面
+    route.getbrand(data,function(result){
+        // console.log(result);
+        $('.sort-box').html(template('sorttpl',result));
+    });
+
+    var data1 = {
+        brandtitleid:brandtitleid,
+        pagesize:4
+    };
+
+    route.getbrandproductlist(data1,function(result){
+        // console.log(result);
+        $('.sell_sort-box').html(template('selltpl',result));
+        
+    });
+
+      $('.sell_sort-box').on('click','li',function(){
+        var productid =  $(this).data('productid');
+        var str_img =  $(this).data('strimg');
+        var proname =  $(this).data('proname');
+        var data2 = {
+            productid:productid
+        };
+         route.getproductcom(data2,function(result){
+            $('.comment-box').html(template('commenttpl',result));
+            $('.comm_top .sell_left').html(str_img);
+            $('.comm_top .sell_desc').html(proname);
+            window.location.href = "#gotome";
+         });
+       })
+    
+ 
+</script>
+</body>
+</html>
